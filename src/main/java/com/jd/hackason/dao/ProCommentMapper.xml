@@ -4,15 +4,17 @@
 <mapper namespace="com.jd.hackason.dao.ProCommentDao">
 	<select id="select" parameterType="com.jd.hackason.dto.ProCommentDto"
 		resultType="com.jd.hackason.bean.ProComment">
-		select id,pro_id,user_id,order_id,dt,star,content,noname,image from
+		select
+		id,pro_id,user_id,order_id,dt,star,content,noname,image,add_content,useful,sen
+		from
 		`pro_comment` where 1=1
-		<if test="mode==1">
+		<if test="star_mode==1">
 			and (star=5 or star=4)
 		</if>
-		<if test="mode==2">
+		<if test="star_mode==2">
 			and (star=3 or star=2)
 		</if>
-		<if test="mode==3">
+		<if test="star_mode==3">
 			and star=1
 		</if>
 		<if test="has_image==1">
@@ -20,6 +22,12 @@
 		</if>
 		<if test="has_addcomment==1">
 			and add_content is not null
+		</if>
+		<if test="order_mode == 1">
+			order by dt desc
+		</if>
+		<if test="order_mode == 2">
+			and char_length(content)>=15 order by sen desc
 		</if>
 		limit #{offset},#{limit}
 	</select>

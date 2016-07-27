@@ -3,9 +3,10 @@ package com.jd.hackason.dto;
 public class ProCommentDto {
 	int limit;
 	int offset;
-	int mode;
+	int star_mode;
 	int has_image;
 	int has_addcomment;
+	int order_mode;
 
 	public int getLimit() {
 		return limit;
@@ -23,12 +24,12 @@ public class ProCommentDto {
 		this.offset = offset;
 	}
 
-	public int getMode() {
-		return mode;
+	public int getStar_mode() {
+		return star_mode;
 	}
 
-	public void setMode(int mode) {
-		this.mode = mode;
+	public void setStar_mode(int star_mode) {
+		this.star_mode = star_mode;
 	}
 
 	public int getHas_image() {
@@ -45,6 +46,14 @@ public class ProCommentDto {
 
 	public void setHas_addcomment(int has_addcomment) {
 		this.has_addcomment = has_addcomment;
+	}
+
+	public int getOrder_mode() {
+		return order_mode;
+	}
+
+	public void setOrder_mode(int order_mode) {
+		this.order_mode = order_mode;
 	}
 
 }
