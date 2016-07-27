@@ -1,10 +1,10 @@
-package com.jd.hackason.dao;
+package com.jd.hackason.service;
 
 import java.util.List;
 
 import com.jd.hackason.bean.ProComment;
 import com.jd.hackason.dto.ProCommentDto;
 
-public interface ProCommentDao {
+public interface IProCommentService {
 	public List<ProComment> select(ProCommentDto proCommentDto);
 }
