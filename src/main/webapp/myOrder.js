@@ -2,8 +2,23 @@ $(function(){
 	var buttonValue=[];
 	var aa=0;
 	var star_num =0;
+	var right_option=false;
+	$.ajax({
+		type:"post",
+		url:"user/online.action",
+		dataType:"json",
+		data:null,
+		contentType:"application/json",
+		success:function(result){
+		if(result.result=="faild") location.href="index.html";
+		},
+		error:function(){
+			alert("服务器错误");
+		}
+	});
 	$("#header_3 .button").css("background","#FEFEFE");
 	$("#header_3 .star_1").click(function(e){
+		right_option=true;
 		aa=0;
 		buttonValue=[];
 		$("#header_3 .myTable").css("border","0px");
@@ -56,6 +71,7 @@ $(function(){
 	}
 	
 	$(".button").click(function(){
+	if(right_option==false) return;
 	 $(this).css("background","red");
 	 
 	 buttonValue[aa]=$(this).val();//这里是用点击button的value值；应该用beackground==red的值

@@ -47,42 +47,15 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/test.action", method = RequestMethod.POST)
-	public ResponseEntity<Object> test(@RequestParam("file") MultipartFile file,HttpServletRequest request) throws Exception {
-		String file_name=file.getOriginalFilename(); //文件名
-		//获取session
-		ServletRequestAttributes attrs=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
-		HttpSession session=attrs.getRequest().getSession();
-		String username=(String) session.getAttribute("user");
-		//用户名+当前时间作为图片名字
-		Calendar calendar=Calendar.getInstance();
-		Date date=new Date();
-		calendar.setTime(date);
-		long time=calendar.getTimeInMillis();
-		String new_name=username+time;
-		String s[]=file_name.split("\\.");	//通过.分隔符得到上传图片的格式
-		String path=new_name+"."+s[s.length-1];//把图片重命名，加上存放路径
-		File f=new File("E://",path);
-		file.transferTo(f);
-		return new ResponseEntity<Object>(HttpStatus.OK);
+	@RequestMapping(value = "/online.action", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
+	public ResponseEntity<Object> online() throws Exception {	
+			ServletRequestAttributes attrs=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+			HttpSession session=attrs.getRequest().getSession();
+			String username=(String) session.getAttribute("user");
+			Map<String,Object> m=new HashMap<String,Object>();
+			if(username==null || username.equals("")) m.put("result", "faild");
+			else m.put("result", username);
+			return new ResponseEntity<Object>(m,HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/get_imge.action", method = RequestMethod.GET)
-	public ResponseEntity<Object> get_imge(@RequestParam("path") String path,HttpServletResponse response) throws Exception {
-		System.out.println(path);
-		File file=new File(path);
-		OutputStream out=response.getOutputStream();
-		FileInputStream in=new FileInputStream(file);
-		int n;
-		while(true){
-			n=in.read();
-			if(n==-1) break;
-			out.write(n);
-		}
-		out.flush();
-		out.close();
-		in.close();
-		return new ResponseEntity<Object>(HttpStatus.OK);
-	}
-	
+
 }
