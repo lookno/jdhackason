@@ -19,7 +19,7 @@ $(function(){
 			data:JSON.stringify(d),
 			success:function(result){
 				if(result.success==200){
-					alert("success");	
+					location.href="myOrder.html";	
 				}else{
 					alert("失败");
 				}	

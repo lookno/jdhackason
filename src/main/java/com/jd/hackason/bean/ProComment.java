@@ -8,7 +8,6 @@ public class ProComment {
 	String dt;
 	int star;
 	String content;
-	int noname;
 	String image;
 	String add_content;
 	int useful;
@@ -68,14 +67,6 @@ public class ProComment {
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public int getNoname() {
-		return noname;
-	}
-
-	public void setNoname(int noname) {
-		this.noname = noname;
 	}
 
 	public String getImage() {

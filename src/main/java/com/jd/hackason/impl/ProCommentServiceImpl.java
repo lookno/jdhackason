@@ -18,4 +18,9 @@ public class ProCommentServiceImpl implements IProCommentService {
 		return proCommentDao.select(proCommentDto);
 	}
 
+	@Override
+	public void insert(ProComment procomment) {
+		proCommentDao.insert(procomment);
+	}
+
 }

@@ -31,4 +31,8 @@
 		</if>
 		limit #{offset},#{limit}
 	</select>
+	<insert id="insert" parameterType="com.jd.hackason.bean.ProComment" >
+		insert into pro_comment (pro_id,user_id,order_id,dt,star)
+		values (#{pro_id},#{user_id},#{order_id},#{dt},#{star})
+	</insert>
 </mapper>

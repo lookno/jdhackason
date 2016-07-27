@@ -7,4 +7,5 @@ import com.jd.hackason.dto.ProCommentDto;
 
 public interface IProCommentService {
 	public List<ProComment> select(ProCommentDto proCommentDto);
+	public void insert(ProComment procomment);
 }

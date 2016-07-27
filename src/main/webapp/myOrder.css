@@ -1,0 +1,235 @@
+body{
+	margin:0px;
+	padding:0px;
+	background:url(myOrderImage/bg_1.png) no-repeat;
+	
+}
+#header{
+	position:relative;
+	top:105px;
+	left:170px;
+	
+	
+}
+ul li{
+	list-style-type:none;
+}
+a{
+	text-decoration:none;
+	font-size:12px;
+}
+table td{
+	border:0px;
+}
+#header ul li{
+	display:inline;
+	padding:10px;	
+}
+#leftSide{
+	position:relative;
+	top:109px;
+	left:160px;
+}
+img.btn_5{
+	margin-left:32px;
+}
+.btn_10{
+	position:absolute;
+	top:180px;
+	left:350px;
+}
+#header_2{
+	position:absolute;
+	top:230px;
+	left:310px;	
+	width:895px;
+	height:36px;
+	line-height:36px;
+}
+#header_2 ul{
+	display:inline;
+	
+}
+#header_2 ul li{
+	display:inline;
+	margin-right:5px;
+	
+}
+#header_2 .search_1{
+	
+	float:right;
+	margin:0px ;
+	
+}
+#header_3{
+	position:relative;
+	top:87px;
+	left:317px;	
+	z-index:1;
+}
+#header_3 .star_1{
+	position:relative;
+	top:-82px;
+	left:-300px;
+	
+}
+#header_3 .star_1:hover{
+	cursor:pointer;
+}
+#header_3 .btn_18{
+	position:relative;
+	top:-79px;
+	left:-300px;
+}
+
+
+
+#header_3 .pic_2{
+	position:absolute;
+	top:50px;
+	left:25px;
+	z-index:2;
+	
+}
+
+#header_3 .btn_16{
+	position:absolute;
+	top:75px;
+	left:490px;
+	z-index:2;
+}
+#header_3 .order1{
+	position:absolute;
+	top:85px;
+	left:483px;
+	z-index:2;
+	font-size:12px;
+	margin-top:4px;
+	text-decoration:none;
+}
+#header_3 .order1:hover{
+	color:red;
+}
+#header_3 .myTable{
+	position:absolute;
+	top:80px;
+	left:586px;
+	z-index:2;
+	width:185px;
+	height:60px;
+	border:1px solid #999;
+	
+	
+}
+#header_3 .other_1{
+	display:inline;
+	position:absolute;
+	top:68px;
+	left:763px;
+	
+}
+#header_3 .other_1 a:hover{
+	color:red;
+	
+}
+#header_4{
+	position:relative;
+	top:107px;
+	left:317px;	
+	z-index:1;
+	margin:0px 0px 10px 0px;
+}
+
+#header_4 .star_1_2{
+	position:relative;
+	top:-200px;
+	left:-300px;
+	
+}
+#header_4 .btn_18_2{
+	position:relative;
+	top:-195px;
+	left:-300px;
+}
+
+
+
+#header_4 .pic_1{
+	position:absolute;
+	top:50px;
+	left:25px;
+	z-index:2;
+	
+}
+
+#header_4 .btn_16{
+	position:absolute;
+	top:135px;
+	left:490px;
+	z-index:2;
+}
+#header_4 .order2{
+	position:absolute;
+	top:155px;
+	left:483px;
+	z-index:2;
+	font-size:12px;
+	margin-top:4px;
+	text-decoration:none;
+}
+#header_4 .order2 a:hover{
+	color:red;
+}
+#header_4 .myTable{
+	position:absolute;
+	top:80px;
+	left:586px;
+	z-index:2;
+	width:185px;
+	height:60px;
+	border:1px solid #999;
+	
+}
+
+#header_4 .star_1_3{
+	position:relative;
+	top:-85px;
+	left:-490px;
+	
+}
+
+#header_4 .btn_18_3{
+	position:relative;
+	top:-83px;
+	left:-490px;
+}
+#header_4 .myTable2{
+	position:absolute;
+	top:187px;
+	left:586px;
+	z-index:2;
+	width:185px;
+	height:60px;
+	border:1px solid #999;
+	
+}
+#header_4 .other_2{
+	display:inline;
+	position:absolute;
+	top:108px;
+	left:763px;
+	
+}
+#header_4 .other_2 a:hover{
+	color:red;
+	
+}
+.button{
+	width:59px;
+	height:27px;
+	background:#999;
+	font-size:6px;
+	border:none;
+	color:#FEFEFE;
+}
+
