@@ -32,6 +32,7 @@
 			<artifactId>guice</artifactId>
 			<version>4.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
 
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>

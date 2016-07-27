@@ -47,8 +47,8 @@ public class UserController {
 
 	}
 
-	@RequestMapping(value = "/test.action", method = RequestMethod.POST)
-	public ResponseEntity<Object> test(@RequestParam("file") MultipartFile file,HttpServletRequest request) throws Exception {
+	@RequestMapping(value = "/save_image.action", method = RequestMethod.POST)
+	public ResponseEntity<Object> save_image(@RequestParam("file") MultipartFile file,HttpServletRequest request) throws Exception {
 		String file_name=file.getOriginalFilename(); //文件名
 		//获取session
 		ServletRequestAttributes attrs=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
@@ -67,7 +67,7 @@ public class UserController {
 		return new ResponseEntity<Object>(HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/get_imge.action", method = RequestMethod.GET)
+	@RequestMapping(value = "/get_image.action", method = RequestMethod.GET)
 	public ResponseEntity<Object> get_imge(@RequestParam("path") String path,HttpServletResponse response) throws Exception {
 		System.out.println(path);
 		File file=new File(path);
