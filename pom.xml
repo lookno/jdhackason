@@ -22,7 +22,7 @@
 		<javax.servlet>3.1.0</javax.servlet>
 		<commons-dbcp2>2.1.1</commons-dbcp2>
 		<mybatis-spring.version>1.2.4</mybatis-spring.version>
-		<mysql.version>5.1.38</mysql.version>
+		<mysql.version>5.1.8</mysql.version>
 		<commons-email.version>1.4</commons-email.version>
 	</properties>
 	<dependencies>
