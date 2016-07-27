@@ -16,23 +16,20 @@
 		IOC容器中取DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 两个bean来完成测试，取的时候要知道是<mvc:annotation-driven 
 		/>这一句注册的这两个bean。 -->
 	<mvc:annotation-driven></mvc:annotation-driven>
-	<context:component-scan base-package="cn.neu"></context:component-scan>
+	<context:component-scan base-package="com.jd.hackason"></context:component-scan>
 
 	<!-- 加载配置文件 -->
 	<!-- util:properties方式,类中@Value("#{jdbc[driver]}") -->
 	<!-- <util:properties id="jdbc" location="classpath:db.properties"></util:properties> -->
 	<!-- PropertyPlaceholderConfigurer方式,这里使用其扩展,以便其在源代码中使用,类中ConfigUtils.getString("db.driver") -->
-	<bean class="cn.neu.utils.ConfigUtil">
-		<property name="locations">
-			<list>
-				<value>classpath:db.properties</value>
+<bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="locations">  
+           <list>  
+              <value>classpath:db.properties</value>
 				<value>classpath:redis.properties</value>
-			</list>
-		</property>
-		<property name="fileEncoding" value="UTF-8" />
-		<property name="ignoreResourceNotFound" value="false" />
-	</bean>
-
+            </list>  
+        </property>  
+    </bean>  
 	<!-- dbcp连接池 -->
 	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName" value="${db.driver}"></property>
@@ -42,11 +39,11 @@
 	</bean>
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"></property>
-		<property name="mapperLocations" value="classpath:cn/neu/dao/*.xml"></property>
+		<property name="mapperLocations" value="classpath:com/jd/hackason/dao/*.xml"></property>
 	</bean>
 	<!--自动扫描 将Mapper接口生成代理注入到Spring -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.neu.dao" />
+		<property name="basePackage" value="com.jd.hackason.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	<!-- 事务处理 -->
