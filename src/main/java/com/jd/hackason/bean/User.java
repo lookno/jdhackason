@@ -2,19 +2,21 @@ package com.jd.hackason.bean;
 
 public class User {
 	private int id;
-	private String username;
+	private String name;
 	private String password;
+	private String address;
+	private String type;
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getUsername() {
-		return username;
+	public String getName() {
+		return name;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setName(String name) {
+		this.name = name;
 	}
 	public String getPassword() {
 		return password;
@@ -22,6 +24,19 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	
 
 	
 }

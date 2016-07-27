@@ -13,9 +13,11 @@ class UserServiceImpl implements IUserService {
 	private UserDao userDao;
 
 	@Override
-	public User login(User user) throws ServerException {
+	public int login(User user) throws ServerException {
 		try {
-			return userDao.select(user);
+			int i=userDao.select(user);
+			System.out.println(i);
+			return i;
 		} catch (Exception e) {
 			throw new ServerException("数据库异常,请稍后再试", e);
 		}

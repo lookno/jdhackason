@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.jd.hackason.dao.UserDao">
-	<select id="select" parameterType="com.jd.hackason.bean.User" resultType="com.jd.hackason.bean.User">
-		select * from `user` where
-		`username` = #{username,jdbcType=VARCHAR}
+	<select id="select" parameterType="com.jd.hackason.bean.User" resultType="int">
+		select count(*) from `user` where
+		`name` = #{name,jdbcType=VARCHAR}
 		and `password` =
 		#{password,jdbcType=VARCHAR}
 	</select>

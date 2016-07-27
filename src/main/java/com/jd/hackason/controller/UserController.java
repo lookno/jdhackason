@@ -1,12 +1,21 @@
 package com.jd.hackason.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+
 import com.jd.hackason.bean.User;
 import com.jd.hackason.service.IUserService;
 
@@ -15,19 +24,19 @@ import com.jd.hackason.service.IUserService;
 public class UserController {
 	@Resource
 	private IUserService iUserService;
-
 	@RequestMapping(value = "/login.action", method = RequestMethod.POST, produces = "application/json", consumes = "application/json")
 	public ResponseEntity<Object> login(@RequestBody User user) throws Exception {
-		System.out.println();
-		User u = iUserService.login(user);
-		System.out.println(u);
-		return new ResponseEntity<Object>(u, HttpStatus.OK);
+		int u = iUserService.login(user);
+		Map<String,Object> m=new HashMap<String,Object>();
+		if(u==1) {
+			m.put("success", 200);
+			ServletRequestAttributes attrs=(ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+			HttpSession session=attrs.getRequest().getSession();
+			session.setAttribute("user", user.getName());
+		}
+		else m.put("success", 400);
+		return new ResponseEntity<Object>(m,HttpStatus.OK);
 
-		/*
-		 * Map<String, Object> map = new HashMap<>(); map.put("pos", "3");
-		 * map.put("msg", "用户类型错误"); return new ResponseEntity<Object>(map,
-		 * HttpStatus.BAD_REQUEST);
-		 */
 	}
 
 	@RequestMapping(value = "/test", method = RequestMethod.GET, produces = "application/json", consumes = "application/json")
