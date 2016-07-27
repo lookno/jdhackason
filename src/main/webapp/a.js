@@ -1,7 +1,7 @@
 $(function(){
-	$("#tijiao").change(function(){
+	$("#tijiao").click(function(){
 			$.ajax({
-			    url: '/tongqu/person/getfile',
+			    url: 'user/test.action',
 			    type: 'post',
 			    cache: false,
 			    "async" : false,
