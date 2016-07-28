@@ -31,7 +31,7 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 
 @RestController
-@RequestMapping("procomment")
+@RequestMapping("/procomment")
 public class ProCommentController {
 	public static final String SENTIMENT_URL = "http://api.bosonnlp.com/sentiment/analysis";
 	@Resource

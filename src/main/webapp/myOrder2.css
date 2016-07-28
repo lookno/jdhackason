@@ -1,0 +1,122 @@
+body ul{
+	margin:0px;
+	padding:0px;
+	
+	
+}
+#myBody{
+	width:100%;
+	height:780px;
+	background:url(myOrder2Image/bg_1.png)no-repeat;
+}
+
+ul li{
+	list-style-type:none;
+}
+a{
+	text-decoration:none;
+	font-size:12px;
+}
+#myBody .pic_1{
+	position:absolute;
+	top:290px;
+	left:200px;
+	
+}
+#rightSide{
+	position:absolute;
+	top:320px;
+	left:607px;
+	
+}
+#rightSide li{
+	display:inline;
+	
+}
+#myBody .pic_2{
+	position:absolute;
+	top:430px;
+	left:200px;
+}
+
+
+#rightBottom{
+	position:absolute;
+	top:455px;
+	left:600px;
+	width:580px;
+	height:215px;
+	
+}
+
+#rightBottom .btn_5{
+	padding:10px;	
+}
+#rightBottom  .btn_5_star{
+	margin:10px;	
+}
+
+#rightBottom  .btn_6{
+	
+	margin-left:10px;
+	
+}
+#rightBottom ul{
+	margin-left:90px;
+	
+}
+#rightBottom ul li{
+	width:70px;
+	height:25px;
+	display:inline;
+	margin-right:15px;
+	
+}
+#rightBottom  .button{
+	background:#666;
+	width:70px;
+	height:25px;
+	border:none;
+	font-size:8px;
+	margin-top:2px;
+	color:#FEFEFE;
+}
+#rightBottom .btn_7{
+	margin:10px;
+	
+}
+#rightBottom .myContent{
+	margin-top:10px;
+	margin-left:11px;
+	width:440px;
+	height:60px;
+	border:1px solid #666;
+	text-align:left;
+	
+	
+}
+#rightBottom .picButton{
+	margin-top:4px;
+	margin-left:10px;
+	border:none;
+	width:117px;
+	height:16px;
+	background:url(myOrder2Image/btn_8.png);
+	
+	
+	
+}
+#bottom {
+	text-align:center;
+	padding-top:700px;
+	
+}
+.picButton:hover{
+	cursor:pointer;
+}
+.btn_1:hover{
+	cursor:pointer;
+}
+#file{
+	display:none;
+}
