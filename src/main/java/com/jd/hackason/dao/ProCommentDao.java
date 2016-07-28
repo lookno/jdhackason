@@ -8,4 +8,6 @@ import com.jd.hackason.dto.ProCommentDto;
 public interface ProCommentDao {
 	public List<ProComment> select(ProCommentDto proCommentDto);
 	public void insert(ProComment procomment);
+	public double avarageOfSen();
+	public int getNum();
 }

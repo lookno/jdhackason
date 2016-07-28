@@ -26,12 +26,19 @@
 		<commons-email.version>1.4</commons-email.version>
 	</properties>
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/com.mashape.unirest/unirest-java -->
+		<dependency>
+			<groupId>com.mashape.unirest</groupId>
+			<artifactId>unirest-java</artifactId>
+			<version>1.4.9</version>
+		</dependency>
 
 		<dependency>
 			<groupId>com.google.inject</groupId>
 			<artifactId>guice</artifactId>
 			<version>4.0</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.caucho/hessian -->
 
 		<!-- https://mvnrepository.com/artifact/commons-fileupload/commons-fileupload -->
 		<dependency>

@@ -23,4 +23,9 @@ public class ProCommentServiceImpl implements IProCommentService {
 		proCommentDao.insert(procomment);
 	}
 
+	@Override
+	public double avarageOfSen() {
+		return proCommentDao.avarageOfSen();
+	}
+
 }
