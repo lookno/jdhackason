@@ -31,11 +31,40 @@
 		</if>
 		limit #{offset},#{limit}
 	</select>
-	<insert id="insert" parameterType="com.jd.hackason.bean.ProComment" >
-		insert into pro_comment (pro_id,user_id,order_id,dt,star,content,image)
-		values (#{pro_id},#{user_id},#{order_id},#{dt},#{star},#{content},#{image})
+	<insert id="insert" parameterType="com.jd.hackason.bean.ProComment">
+		insert into pro_comment
+		(pro_id,user_id,order_id,dt,star,content,image)
+		values
+		(#{pro_id},#{user_id},#{order_id},#{dt},#{star},#{content},#{image})
 	</insert>
 	<select id="avarageOfSen" resultType="double">
-		select avg(sen) from pro_comment
+		select avg(sen) from
+		pro_comment
+	</select>
+	<select id="getNum" parameterType="int" resultType="int">
+		select
+		count(*) from pro_comment where pro_id = #{pro_id}
+	</select>
+	<select id="getGoodInfo" resultType="int">
+		select count(*) from
+		pro_comment where star=5 or
+		star=4 and pro_id = #{pro_id}
+	</select>
+	<select id="getMidInfo" resultType="int">
+		select count(*) from
+		pro_comment where star=3 or
+		star=2 and pro_id = #{pro_id}
+	</select>
+	<select id="getBadInfo" resultType="int">
+		select count(*) from
+		pro_comment where star=1 and pro_id = #{pro_id}
+	</select>
+	<select id="getPicInfo" resultType="int">
+		select count(*) from
+		pro_comment where image is not null and pro_id = #{pro_id}
+	</select>
+	<select id="getAddContentInfo" resultType="int">
+		select count(*) from
+		pro_comment where add_content is not null and pro_id = #{pro_id}
 	</select>
 </mapper>

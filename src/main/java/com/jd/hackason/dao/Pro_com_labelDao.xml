@@ -3,14 +3,26 @@
  "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 <mapper namespace="com.jd.hackason.dao.Pro_com_labelDao">
 	<select id="exist" parameterType="String" resultType="int">
-		select count(*) from pro_com_label where
-		label_name = #{label_name,jdbcType=VARCHAR}
+		select
+		count(*) from pro_com_label where
+		label_name =
+		#{label_name,jdbcType=VARCHAR}
 	</select>
-	<update id="update" parameterType="String" >
-		update pro_com_label set num=num+1 where label_name = #{label_name}
+	<update id="update" parameterType="String">
+		update pro_com_label
+		set
+		num=num+1 where label_name = #{label_name}
 	</update>
-	<insert id="insert" parameterType="com.jd.hackason.bean.Pro_com_label" >
-		insert into pro_com_label (pro_id,label_name,num)
-		values (#{pro_id},#{label_name},#{num})
+	<insert id="insert" parameterType="com.jd.hackason.bean.Pro_com_label">
+		insert into pro_com_label
+		(pro_id,label_name,num)
+		values
+		(#{pro_id},#{label_name},#{num})
 	</insert>
+	<select id="getLabelInfo" parameterType="int"
+		resultType="com.jd.hackason.bean.Pro_com_label">
+		select label_name,num from
+		pro_com_label where pro_id =
+		#{id}
+	</select>
 </mapper>

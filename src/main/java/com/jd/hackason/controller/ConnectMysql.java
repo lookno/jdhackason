@@ -5,7 +5,6 @@ import com.mashape.unirest.http.JsonNode;
 import com.mashape.unirest.http.Unirest;
 import org.json.JSONArray;
 import java.sql.*;
-import java.util.ArrayList;
 
 public class ConnectMysql {
 
@@ -17,7 +16,7 @@ public class ConnectMysql {
 		String url = "jdbc:mysql://172.16.28.253:3306/jdstar";
 		String user = "root";
 		String password = "yongsheng";
-		Double averScore = 0.0;
+		String body = new JSONArray(new String[] { "他是个傻逼" }).toString();
 		try {
 			Class.forName(driver);
 			Connection conn = DriverManager.getConnection(url, user, password);
@@ -26,43 +25,30 @@ public class ConnectMysql {
 
 			// 读取pro_comment表content和id字段
 			Statement statement = conn.createStatement();
-			String query = "select * from pro_comment order by id desc";
+			String query = "select * from pro_comment order by id desc limit 1";
 			ResultSet rs = statement.executeQuery(query);
-			// ArrayList<String> comment = new ArrayList<String>();
-			// ArrayList<Integer> ids = new ArrayList<Integer>();
-			
-			String comment = null;
+			String commentTmp = null;
 			int id = 0;
 			while (rs.next()) {
-				comment = rs.getString("content");
+				commentTmp = rs.getString("content");
 				id = rs.getInt("id");
 			}
+			System.out.println(commentTmp);
 
+			String comment = new JSONArray(new String[] { commentTmp }).toString();
 			HttpResponse<JsonNode> jsonResponse = Unirest.post(SENTIMENT_URL).header("Accept", "application/json")
 					.header("X-Token", "fxy59Ea3.8745.bbKk5ZUkXTNp").body(comment).asJson();
+			System.out.println(jsonResponse.getBody());
 
-			
 			JSONArray commentScore = jsonResponse.getBody().getArray();
-			
-//			
-//			for (int i = 0; i < commentScore.length(); i++) {
-//				averScore = averScore + (double) commentScore.getJSONArray(i).get(0);
-//			}
-//			averScore = averScore / commentScore.length();
-//			System.out.println(averScore);
-
+			Double score = (double) commentScore.getJSONArray(0).get(0);
 			// sen字段写入数据库
 			Statement insert = conn.createStatement();
-//			for (int i = 0; i < commentScore.length(); i++) {
-//				insert.executeUpdate(
-//						"UPDATE pro_comment SET sen = " + commentScore.getJSONArray(i).get(0) + "where id = " + i + "");
-//							}
-			
-			insert.executeUpdate("update pro_comment set sen="+commentScore.get(0)+" where id = "+id+"");
+			for (int i = 0; i < commentScore.length(); i++) {
+				insert.executeUpdate("UPDATE pro_comment SET sen = " + score + "where id = " + id + "");
+			}
 			rs.close();
 			conn.close();
-			
-			
 
 		} catch (ClassNotFoundException e) {
 			System.out.println("Sorry,can`t find the Driver!");
@@ -72,6 +58,5 @@ public class ConnectMysql {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 	}
 }

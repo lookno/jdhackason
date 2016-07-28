@@ -28,4 +28,40 @@ public class ProCommentServiceImpl implements IProCommentService {
 		return proCommentDao.avarageOfSen();
 	}
 
+	@Override
+	public int getGoodInfo(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getGoodInfo(pro_id);
+	}
+
+	@Override
+	public int getMidInfo(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getMidInfo(pro_id);
+	}
+
+	@Override
+	public int getBadInfo(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getBadInfo(pro_id);
+	}
+
+	@Override
+	public int getNum(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getNum(pro_id);
+	}
+
+	@Override
+	public int getPicInfo(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getPicInfo(pro_id);
+	}
+
+	@Override
+	public int getAddContentInfo(int pro_id) {
+		// TODO Auto-generated method stub
+		return proCommentDao.getAddContentInfo(pro_id);
+	}
+
 }
